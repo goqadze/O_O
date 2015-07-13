@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>O_O</title>
 		<style>
 			.dimScreen {
 				width: 100%;
@@ -15,14 +15,14 @@
 	</head>
 	<body onmousemove="OnMouseMove()">
 		<div class="dimScreen">
-			<canvas id="myCanvas" width="500" height="250" class="canvas"></canvas>
+			<canvas id="myCanvas" width="500" height="250"></canvas>
 		</div>
 		<script>
 			window.requestAnimFrame = (function(callback) {
-				return 	window.requestAnimationFrame || 
-						window.webkitRequestAnimationFrame || 
-						window.mozRequestAnimationFrame || 
-						window.oRequestAnimationFrame || 
+				return 	window.requestAnimationFrame ||
+						window.webkitRequestAnimationFrame ||
+						window.mozRequestAnimationFrame ||
+						window.oRequestAnimationFrame ||
 						window.msRequestAnimationFrame ||
 						function(callback) {
 							window.setTimeout(callback, 1000 / 60);
@@ -55,7 +55,6 @@
 			var heightFromLine = 70;
 			
 			var canvas = document.getElementById('myCanvas');
-
 			var context = canvas.getContext('2d');
 
 			function drawEye(eye, ctx){
