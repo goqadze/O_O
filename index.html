@@ -140,12 +140,12 @@
 					vecRight.len = vecLeft.len;
 					vecRight.vecX = -vecLeft.vecX;
 					vecRight.vecY = vecLeft.vecY;
-					inEye = 2;
+					inEye = 5;
 				} else if (vecRight.len < rightEye.radius){
 					vecLeft.len = vecRight.len;
 					vecLeft.vecX = -vecRight.vecX;
 					vecLeft.vecY = vecRight.vecY;
-					inEye = 2;
+					inEye = 5;
 				}
 				
 				drawDot(leftEye, vecLeft, inEye, context);
