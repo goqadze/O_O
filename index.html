@@ -76,16 +76,16 @@
 				}
 			}
 			
-			function drawDot(eye, vect, ctx){
+			function drawDot(eye, vect, inEye, ctx){
 						
 				var dotCenterX = eye.centerX + vect.vecX;
 				var dotCenterY = eye.centerY + vect.vecY;
 				
 				ctx.beginPath();
-				ctx.arc(dotCenterX, dotCenterY, 10, 0, 2 * Math.PI, false);
+				ctx.arc(dotCenterX, dotCenterY, 10 + inEye, 0, 2 * Math.PI, false);
 				ctx.fillStyle = 'black';
 				ctx.fill();
-				ctx.lineWidth = 10;
+				ctx.lineWidth = 10 - inEye;
 				ctx.strokeStyle = '#003300';
 				ctx.stroke();
 			}
@@ -134,18 +134,22 @@
 				var vecLeft = getVector(leftEye, x, y, dist);
 				var vecRight = getVector(rightEye, x, y, dist);
 				
+				var inEye = 0;
+				
 				if (vecLeft.len < leftEye.radius){
 					vecRight.len = vecLeft.len;
 					vecRight.vecX = -vecLeft.vecX;
 					vecRight.vecY = vecLeft.vecY;
+					inEye = 2;
 				} else if (vecRight.len < rightEye.radius){
 					vecLeft.len = vecRight.len;
 					vecLeft.vecX = -vecRight.vecX;
 					vecLeft.vecY = vecRight.vecY;
+					inEye = 2;
 				}
 				
-				drawDot(leftEye, vecLeft, context);
-				drawDot(rightEye, vecRight, context);
+				drawDot(leftEye, vecLeft, inEye, context);
+				drawDot(rightEye, vecRight, inEye, context);
 				drawMouth(mouth, x, y, context);
 			}
 			
