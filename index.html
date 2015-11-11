@@ -20,13 +20,13 @@
 		<script>
 			window.requestAnimFrame = (function(callback) {
 				return 	window.requestAnimationFrame ||
-						window.webkitRequestAnimationFrame ||
-						window.mozRequestAnimationFrame ||
-						window.oRequestAnimationFrame ||
-						window.msRequestAnimationFrame ||
-						function(callback) {
-							window.setTimeout(callback, 1000 / 60);
-						};
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function(callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
 			})();
 			var w = window.innerWidth;
 			var h = window.innerHeight;
