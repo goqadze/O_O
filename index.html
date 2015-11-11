@@ -56,7 +56,6 @@
 			
 			var canvas = document.getElementById('myCanvas');
 			var context = canvas.getContext('2d');
-
 			function drawEye(eye, ctx){
 				ctx.beginPath();
 				ctx.arc(eye.centerX, eye.centerY, eye.radius, 0, 2 * Math.PI, false);
@@ -116,7 +115,6 @@
 				ctx.moveTo(mouth.startX, mouth.startY);
 				ctx.quadraticCurveTo(mouth.controlX, mouth.controlY, mouth.endX, mouth.endY);
 				ctx.lineWidth = 10;
-
 				ctx.strokeStyle = '#003300';
 				ctx.stroke();
 			}
@@ -125,15 +123,10 @@
 				var x = event.clientX;
 				var y = event.clientY;
 				context.clearRect(0, 0, canvas.width, canvas.height);
-				
-				drawEye(leftEye, context);
-				drawEye(rightEye, context);
-				
+                
 				var dist = 45;
-				
 				var vecLeft = getVector(leftEye, x, y, dist);
 				var vecRight = getVector(rightEye, x, y, dist);
-				
 				var inEye = 0;
 				
 				if (vecLeft.len < leftEye.radius){
@@ -147,11 +140,15 @@
 					vecLeft.vecY = vecRight.vecY;
 					inEye = 5;
 				}
-				
-				drawDot(leftEye, vecLeft, inEye, context);
-				drawDot(rightEye, vecRight, inEye, context);
-				drawMouth(mouth, x, y, context);
-			}
+
+	                	requestAnimFrame(function(){  
+	       				drawEye(leftEye, context);
+	        			drawEye(rightEye, context);
+	        			drawDot(leftEye, vecLeft, inEye, context);
+	        			drawDot(rightEye, vecRight, inEye, context);
+	        			drawMouth(mouth, x, y, context);
+	        		});
+ 			}
 			
 		</script>
 
