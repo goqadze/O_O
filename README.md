@@ -1,1 +1,1 @@
-http://js.do/agoqadze/62932
+http://goqadze.github.io/O_O/
