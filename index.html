@@ -13,7 +13,7 @@
 			}
 		</style>
 	</head>
-	<body onmousemove="OnMouseMove()" ontouchmove="OnMouseMove()">
+	<body onmousemove="OnMouseMove()">
 		<div class="dimScreen">
 			<canvas id="myCanvas" width="500" height="250"></canvas>
 		</div>
@@ -120,9 +120,8 @@
 			}
 			
 			function OnMouseMove(){
-				var isTouch = event.touches.length > 0;
-				var x = isTouch ? event.touches[0].pageX: event.clientX;
-				var y = isTouch ? event.touches[0].pageY: event.clientY;
+				var x = event.clientX;
+				var y = event.clientY;
 				context.clearRect(0, 0, canvas.width, canvas.height);
                 
 				var dist = 45;
